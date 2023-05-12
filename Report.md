@@ -1,4 +1,4 @@
-I created two DDPG agents, they are totally indendent.
+I created two DDPG agents, they are totally indendent, they have independent replay buffers and independent actor and critic networks.
 
 I modified some hyperparameters such as the weight decay (regularizaton) no regularization. And the critic's learning rate to 1e-3.
 
