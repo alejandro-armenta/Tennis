@@ -5,10 +5,6 @@ These are two DDPGS learning to play tennis collaborately. They have to bounce a
 If an agent hits the ball over the net, it receives a reward of +0.1
 If an agent lets a ball hit the ground or hits the ball out of bounds, it receives a reward of -0.01.
 
+This is the reward after 2000 episodes:
 
-
-
-
-This is the reward:
-
-<img width="408" alt="Score_0" src="https://github.com/alejandro-armenta/Tennis/assets/81542828/2457d367-c177-4f9a-9252-0e24c7afeed9">
+<img width="401" alt="Score_1" src="https://github.com/alejandro-armenta/Tennis/assets/81542828/f271164b-5a3f-4f4e-addb-6e84eaad7697">
