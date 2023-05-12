@@ -13,6 +13,10 @@ There are 24 variables in the state space corresponfing to position and velocity
 
 Two continuous actions, corresponding to movement toward or away from the net and jumping.
 
+## Solution of the environment:
+The environment is considered solved for an average score over 100 episodes of +0.5.
+
+
 
 
 This is the reward after 2000 episodes:
