@@ -2,7 +2,10 @@
 ## Learning Algorithm
 I created two DDPG agents, they are totally indendent, they have independent replay buffers and independent actor and critic networks, they are trained and I compute the mean score across 100 episodes.
 
-The neural networks for the actor has 1 hidden layer and it uses tanh function for outputting values between -1 and 1.
+The neural network for the actor has 1 hidden layer and it uses tanh function for outputting values between -1 and 1.
+
+The critic has as input the state and actions, actions are input in the second layer.
+And it has only one output.
 
 I modified some hyperparameters such as the weight decay (regularizaton) no regularization. And the critic's learning rate to 1e-3.
 
@@ -14,4 +17,4 @@ The environment hasn't been solved. I need for help to know how to solve the pro
 
 
 ## Ideas for Future Work
-I tried changing the reward calculation using the max of both agents. And it did improved the score, but it does not solve the environment anyway.
+I don't know how to solve the problem. Could you help me?
