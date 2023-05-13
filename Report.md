@@ -5,8 +5,8 @@ I created two DDPG agents, they are totally indendent, they have independent rep
 I modified some hyperparameters such as the weight decay (regularizaton) no regularization. And the critic's learning rate to 1e-3.
 
 ## Plot of Rewards:
-<img width="401" alt="Score_1" src="https://github.com/alejandro-armenta/Tennis/assets/81542828/fd1684fa-fc82-4bec-92ca-17ed9cf71c0e">
+<img width="389" alt="Score_2" src="https://github.com/alejandro-armenta/Tennis/assets/81542828/6fcf270b-f41c-41f5-b91d-23bd878494db">
+
 
 ## Ideas for Future Work
-
-So I tried with the hyperparameters but I could not reach the expected mean reward, I don't know what else to try. Is there something else I could try out?
+I tried changing the reward calculation using the max of both agents. And it did improved the score, but it does not solve the environment anyway.
