@@ -16,9 +16,7 @@ Two continuous actions, corresponding to movement toward or away from the net an
 ## Solution of the environment:
 The environment is considered solved for an average score over 100 episodes of +0.5.
 
+These are the rewards after 2000 episodes:
 
+<img width="389" alt="Score_2" src="https://github.com/alejandro-armenta/Tennis/assets/81542828/26145e52-317d-467e-b38b-7111232b107b">
 
-
-This is the reward after 2000 episodes:
-
-<img width="401" alt="Score_1" src="https://github.com/alejandro-armenta/Tennis/assets/81542828/f271164b-5a3f-4f4e-addb-6e84eaad7697">
