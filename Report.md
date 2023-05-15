@@ -1,6 +1,9 @@
 
 ## Learning Algorithm
-I created two DDPG agents, they are totally indendent, they have independent replay buffers and independent actor and critic networks, they are trained and I compute the mean score across 100 episodes.
+I did a lot of things, I changed the replay buffer to be shared across agents, I also changed the OUNoise for the one in the MADDPG code. I also added Noise decay, that really helped me with the results.
+
+
+created two DDPG agents, they are totally indendent, they have independent replay buffers and independent actor and critic networks, they are trained and I compute the mean score across 100 episodes.
 
 The neural network for the actor has 1 hidden layer and it uses tanh function for outputting values between -1 and 1.
 
@@ -13,7 +16,8 @@ I modified some hyperparameters such as the weight decay (regularizaton) no regu
 
 The environment hasn't been solved. I need for help to know how to solve the problem.
 
-<img width="389" alt="Score_2" src="https://github.com/alejandro-armenta/Tennis/assets/81542828/6fcf270b-f41c-41f5-b91d-23bd878494db">
+<img width="394" alt="Score_3" src="https://github.com/alejandro-armenta/Tennis/assets/81542828/0a5f3015-e1bf-4d35-8d96-9f9cde8bd827">
+
 
 
 ## Ideas for Future Work
