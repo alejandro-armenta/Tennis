@@ -1,6 +1,6 @@
 
 ## Learning Algorithm
-I have two DDPG agents, I changed the replay buffer to be shared across agents and the actor network is also shared, I also changed the OUNoise for the one in the MADDPG code. I increased OUNoise's parameters to explore more.
+I have two critics, one replay buffer that is shared across agents and one actor network also shared across agents, I also changed the OUNoise for the one in the MADDPG code. I increased OUNoise's parameters to explore more.
 
 ## Plot of Rewards:
 <img width="385" alt="Score_6" src="https://github.com/alejandro-armenta/Tennis/assets/81542828/7bb98e9b-7760-4cec-bedf-3f5593e726f4">
