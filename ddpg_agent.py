@@ -14,13 +14,14 @@ BATCH_SIZE = 64        # minibatch size
 
 GAMMA = 0.99            # discount factor
 #GAMMA = 0.70
-TAU = 1e-3              # for soft update of target parameters
-#TAU = 1e-2
+#0.1
+TAU = 1.3e-3              # for soft update of target parameters
+#TAU = 1e-1
 
-LR_ACTOR = 1e-4         # learning rate of the actor 
-LR_CRITIC = 1e-3        # learning rate of the critic
+LR_ACTOR = 3e-3         # learning rate of the actor 
+LR_CRITIC = 2e-3        # learning rate of the critic
 WEIGHT_DECAY = 0        # L2 weight decay
-UPDATE_EVERY = 6        # how often to update the network
+UPDATE_EVERY = 1        # how often to update the network
 UPDATE_COUNT = 1        # how many times to update the network each update step!
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -28,7 +29,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 class Agent():
     """Interacts with and learns from the environment."""
     
-    def __init__(self, state_size, action_size, memory_, random_seed):
+    def __init__(self, state_size, action_size, memory_, actor_local, actor_target, actor_optimizer, random_seed):
         """Initialize an Agent object.
         
         Params
@@ -42,9 +43,13 @@ class Agent():
         self.seed = random.seed(random_seed)
 
         # Actor Network (w/ Target Network)
-        self.actor_local = Actor(state_size, action_size, random_seed).to(device)
-        self.actor_target = Actor(state_size, action_size, random_seed).to(device)
-        self.actor_optimizer = optim.Adam(self.actor_local.parameters(), lr=LR_ACTOR)
+        self.actor_local = actor_local
+        self.actor_target = actor_target
+        self.actor_optimizer = actor_optimizer
+        
+        print("Actor Local: ", self.actor_local)
+        print("Actor Target: ", self.actor_target)
+        print("Actor Optimizer: ", self.actor_optimizer)
 
         # Critic Network (w/ Target Network)
         self.critic_local = Critic(state_size, action_size, random_seed).to(device)
@@ -144,12 +149,14 @@ class Agent():
             tau (float): interpolation parameter 
         """
         for target_param, local_param in zip(target_model.parameters(), local_model.parameters()):
+        
+        # si usas 1 va a usar todo el nuevo!
             target_param.data.copy_(tau*local_param.data + (1.0-tau)*target_param.data)
 
             
 class OUNoise:
 
-    def __init__(self, action_dimension, scale=0.1, mu=0, theta=0.15, sigma=0.2):
+    def __init__(self, action_dimension, scale=1.0, mu=0, theta=0.20, sigma=0.89):
         self.action_dimension = action_dimension
         self.scale = scale
         self.mu = mu
