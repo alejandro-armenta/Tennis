@@ -15,13 +15,13 @@ BATCH_SIZE = 64        # minibatch size
 GAMMA = 0.99            # discount factor
 #GAMMA = 0.70
 #0.1
-TAU = 1.3e-3              # for soft update of target parameters
+TAU = 1e-3              # for soft update of target parameters
 #TAU = 1e-1
 
-LR_ACTOR = 3e-3         # learning rate of the actor 
-LR_CRITIC = 2e-3        # learning rate of the critic
+#LR_ACTOR = 3e-3         # learning rate of the actor 
+LR_CRITIC = 3e-4        # learning rate of the critic
 WEIGHT_DECAY = 0        # L2 weight decay
-UPDATE_EVERY = 1        # how often to update the network
+UPDATE_EVERY = 6        # how often to update the network
 UPDATE_COUNT = 1        # how many times to update the network each update step!
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -156,7 +156,7 @@ class Agent():
             
 class OUNoise:
 
-    def __init__(self, action_dimension, scale=1.0, mu=0, theta=0.20, sigma=0.89):
+    def __init__(self, action_dimension, scale=1.0, mu=0, theta=10.0, sigma=10.0):
         self.action_dimension = action_dimension
         self.scale = scale
         self.mu = mu
