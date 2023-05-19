@@ -15,3 +15,5 @@ Two continuous actions, corresponding to movement toward or away from the net an
 
 ## Solution of the environment:
 The environment is considered solved for an average score over 100 episodes of +0.5.
+
+*NOTE: I used Udacity's workspace so I don't know which dependencies are needed! I used Udacity's workspace and I followed its instructions to complete the project.*
