@@ -19,9 +19,9 @@ TAU = 1e-3              # for soft update of target parameters
 #TAU = 1e-1
 
 #LR_ACTOR = 3e-3         # learning rate of the actor 
-LR_CRITIC = 3e-4        # learning rate of the critic
-WEIGHT_DECAY = 0        # L2 weight decay
-UPDATE_EVERY = 6        # how often to update the network
+#LR_CRITIC = 3e-4        # learning rate of the critic
+#WEIGHT_DECAY = 0        # L2 weight decay
+UPDATE_EVERY = 1        # how often to update the network
 UPDATE_COUNT = 1        # how many times to update the network each update step!
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -29,7 +29,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 class Agent():
     """Interacts with and learns from the environment."""
     
-    def __init__(self, state_size, action_size, memory_, actor_local, actor_target, actor_optimizer, random_seed):
+    def __init__(self, state_size, action_size, memory_, actor_local, actor_target, actor_optimizer, critic_local, critic_target, critic_optimizer, random_seed):
         """Initialize an Agent object.
         
         Params
@@ -47,14 +47,14 @@ class Agent():
         self.actor_target = actor_target
         self.actor_optimizer = actor_optimizer
         
-        print("Actor Local: ", self.actor_local)
-        print("Actor Target: ", self.actor_target)
-        print("Actor Optimizer: ", self.actor_optimizer)
+        #print("Actor Local: ", self.actor_local)
+        #print("Actor Target: ", self.actor_target)
+        #print("Actor Optimizer: ", self.actor_optimizer)
 
         # Critic Network (w/ Target Network)
-        self.critic_local = Critic(state_size, action_size, random_seed).to(device)
-        self.critic_target = Critic(state_size, action_size, random_seed).to(device)
-        self.critic_optimizer = optim.Adam(self.critic_local.parameters(), lr=LR_CRITIC, weight_decay=WEIGHT_DECAY)
+        self.critic_local = critic_local
+        self.critic_target = critic_target
+        self.critic_optimizer = critic_optimizer
 
         # Noise process
         self.noise = OUNoise(action_size)
@@ -156,7 +156,7 @@ class Agent():
             
 class OUNoise:
 
-    def __init__(self, action_dimension, scale=1.0, mu=0, theta=4.0, sigma=5.0):
+    def __init__(self, action_dimension, scale=1.0, mu=0, theta=1.0, sigma=2.0):
         self.action_dimension = action_dimension
         self.scale = scale
         self.mu = mu
