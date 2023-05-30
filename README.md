@@ -1,5 +1,5 @@
 # Tennis
-These are two DDPGS learning to play tennis collaborately. They have to bounce a ball over the net.
+These are two DDPGS learning to play tennis collaborately in Unity environment. They have to bounce a ball over the net.
 
 ## Reward System:
 If an agent hits the ball over the net, it receives a reward of +0.1
