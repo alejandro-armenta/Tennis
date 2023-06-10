@@ -1,6 +1,9 @@
 # Tennis
 These are two DDPGS learning to play tennis collaborately in Unity environment. They have to bounce a ball over the net.
 
+This is an example of the environment:
+![tennis](https://github.com/alejandro-armenta/Tennis/assets/81542828/e0c8445f-4ed1-4741-9141-d1ecc5c45c8c)
+
 ## Reward System:
 If an agent hits the ball over the net, it receives a reward of +0.1
 If an agent lets a ball hit the ground or hits the ball out of bounds, it receives a reward of -0.01.
